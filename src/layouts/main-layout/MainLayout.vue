@@ -98,6 +98,13 @@ function handleSelectLink(item: NavItem) {
                 :is="isDark ? RadixIconsSun : RadixIconsMoon"
                 class="w-[20px] h-[20px] text-foreground" />
             </Button>
+
+            <Button
+              class=" p-4"
+              :variant="'ghost'"
+              @click="router.push('sign-in')">
+              <span class="p-5">Login</span>
+            </Button>
           </div>
         </div> 
       </div>

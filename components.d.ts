@@ -53,5 +53,6 @@ declare module 'vue' {
     SheetHeader: typeof import('./src/components/ui/sheet/SheetHeader.vue')['default']
     SheetTitle: typeof import('./src/components/ui/sheet/SheetTitle.vue')['default']
     SheetTrigger: typeof import('./src/components/ui/sheet/SheetTrigger.vue')['default']
+    UserAuthForm: typeof import('./src/components/auth/UserAuthForm.vue')['default']
   }
 }
