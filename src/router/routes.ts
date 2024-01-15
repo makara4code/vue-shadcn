@@ -1,14 +1,48 @@
-import LandingPage from "@/pages/index.vue";
+import type { RouteRecordRaw } from "vue-router";
 
-export const routes = [
-    {
-        path: "/",
-        name: "landing-page",
-        component: LandingPage
+export const routes: Array<RouteRecordRaw> = [
+  {
+    path: "/",
+    component: () => import("@/pages/index.vue"),
+  },
+  {
+    path: "/",
+    component: () => import("@/layouts/auth-layout/AuthLayout.vue"),
+    meta: {
+      middleware: "auth",
     },
-    {
-        path: "/about",
-        name: 'about-page',
-        component: () => import("@/pages/about/index.vue")
-    }
-]
+    children: [
+      {
+        path: "/dashboard",
+        name: "dashboard",
+        component: () => import("@/pages/app/Dashboard.vue"),
+      }
+    ]
+  },
+  {
+    path: "/",
+    component: () => import("@/layouts/auth-layout/AuthLayout.vue"),
+    children: [
+      {
+        path: "/sign-in",
+        name: "sign-in",
+        component: () => import("@/pages/app/authentication/SignIn.vue"),
+        meta: {
+          pageTitle: "Sign In",
+        },
+      },
+    ],
+  },
+  {
+    path: "/404",
+    name: "404",
+    component: () => import("@/pages/404NotFound.vue"),
+    meta: {
+      pageTitle: "Error 404",
+    },
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    redirect: "/404",
+  },
+];

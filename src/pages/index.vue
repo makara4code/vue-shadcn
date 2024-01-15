@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { MainLayout } from '@/layouts';
+
+</script>
 <template>
-  <h1>Home Page</h1>
+  <MainLayout>
+    <h1>Home Page</h1>
+  </MainLayout>
 </template>

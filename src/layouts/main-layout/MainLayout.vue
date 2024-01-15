@@ -99,14 +99,13 @@ function handleSelectLink(item: NavItem) {
                 class="w-[20px] h-[20px] text-foreground" />
             </Button>
           </div>
-        </div>
+        </div> 
       </div>
     </header>
 
     <div class="flex-1 bg-background">
       <main class="container">
-        {{ isDark }}
-        <slot />
+        <slot></slot>
       </main>
     </div>
 

@@ -1,5 +1,5 @@
+import { AppLayout } from "./app-layout";
+import { AuthLayout } from "./auth-layout";
 import { MainLayout } from "./main-layout";
 
-export {
-    MainLayout
-}
+export { AppLayout, MainLayout, AuthLayout };
