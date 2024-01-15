@@ -1,30 +1,23 @@
 <script setup lang="ts">
-import { useMagicKeys, useToggle } from "@vueuse/core";
-import { ref, watch } from "vue";
-import { type NavItem, navConfig } from "@/config/globalSearch";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Command, CommandEmpty, CommandInput } from "@/components/ui/command";
-import { useConfigStore } from "@/stores/config";
-import Logo from "@/components/Logo.vue";
-
-import router from "@/router";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { DialogDescription, VisuallyHidden } from 'radix-vue'
+import { ref, watch } from "vue";
+import { SearchIcon } from "lucide-vue-next";
+import { type NavItem, navConfig } from "@/config/globalSearch";
+import { useMagicKeys, useToggle, useDark } from "@vueuse/core";
 
 import File from "~icons/radix-icons/file";
-import RadixIconsGithubLogo from "~icons/radix-icons/github-logo";
+import Logo from "@/components/Logo.vue";
 import RadixIconsMoon from "~icons/radix-icons/moon";
 import RadixIconsSun from "~icons/radix-icons/sun";
+import router from "@/router";
 
-const links = [
-  {
-    name: "GitHub",
-    href: "https://github.com/radix-vue/shadcn-vue",
-    icon: RadixIconsGithubLogo,
-  },
-];
-
-const { isDark } = useConfigStore();
+const isDark = useDark();
 const toggleDark = useToggle(isDark);
+
 const isOpen = ref(false);
+
 const { Meta_K, Ctrl_K } = useMagicKeys({
   passive: false,
   onEventFired(e) {
@@ -96,17 +89,6 @@ function handleSelectLink(item: NavItem) {
 
           <div class="flex items-center gap-x-1">
             <Button
-              v-for="link in links"
-              :key="link.name"
-              as="a"
-              :href="link.href"
-              target="_blank"
-              :variant="'ghost'"
-              :size="'icon'">
-              <component :is="link.icon" class="w-[20px] h-[20px]" />
-            </Button>
-
-            <Button
               class="flex items-center justify-center"
               aria-label="Toggle dark mode"
               :variant="'ghost'"
@@ -123,6 +105,7 @@ function handleSelectLink(item: NavItem) {
 
     <div class="flex-1 bg-background">
       <main class="container">
+        {{ isDark }}
         <slot />
       </main>
     </div>
@@ -167,6 +150,10 @@ function handleSelectLink(item: NavItem) {
 
     <Dialog v-model:open="isOpen">
       <DialogContent class="p-0">
+        <VisuallyHidden>
+          <DialogDescription />
+          <DialogTitle />
+        </VisuallyHidden>
         <Command>
           <CommandInput placeholder="Type a command or a search..." />
           <CommandEmpty>No result found.</CommandEmpty>

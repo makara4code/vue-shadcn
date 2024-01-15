@@ -35,6 +35,7 @@ declare module 'vue' {
     DialogTitle: typeof import('./src/components/ui/dialog/DialogTitle.vue')['default']
     DialogTrigger: typeof import('./src/components/ui/dialog/DialogTrigger.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    Kbd: typeof import('./src/components/Kbd.vue')['default']
     Logo: typeof import('./src/components/Logo.vue')['default']
     MobileNav: typeof import('./src/components/MobileNav.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

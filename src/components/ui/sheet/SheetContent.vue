@@ -8,6 +8,8 @@ import {
   DialogPortal,
   useEmitAsProps,
 } from 'radix-vue'
+import { DialogDescription, VisuallyHidden } from 'radix-vue'
+
 import { X } from 'lucide-vue-next'
 import { cva } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
@@ -52,6 +54,10 @@ const sheetVariants = cva(
       :class="cn(sheetVariants({ side: props.side }), props.class)"
       v-bind="{ ...props, ...emitsAsProps }"
     >
+      <VisuallyHidden>
+        <DialogDescription />
+        <DialogTitle />
+      </VisuallyHidden>
       <slot />
 
       <DialogClose

@@ -1,4 +1,6 @@
 import "./index.css";
+import "./styles/shiki.css";
+import "./styles/themes.css";
 
 import App from './App.vue'
 import { createApp } from 'vue'
