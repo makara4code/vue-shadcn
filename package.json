@@ -1,7 +1,7 @@
 {
   "name": "my-vue-shadcn",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@radix-icons/vue": "^1.0.0",
-    "@types/node": "^20.11.0",
     "@vueuse/core": "^10.7.1",
     "axios": "^1.6.5",
     "class-variance-authority": "^0.7.0",
@@ -26,6 +25,7 @@
   },
   "devDependencies": {
     "@iconify/json": "^2.2.168",
+    "@types/node": "^20.11.0",
     "@vitejs/plugin-vue": "^4.5.2",
     "@vue/eslint-config-prettier": "^9.0.0",
     "@vue/eslint-config-typescript": "^12.0.0",

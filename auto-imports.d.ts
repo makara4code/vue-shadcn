@@ -6,10 +6,7 @@
 export {}
 declare global {
   const EffectScope: typeof import('vue')['EffectScope']
-  const [alias]: typeof import('[package-name]')['[from]']
-  const [import-names]: typeof import('[package-name]')['[import-names]']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
-  const axios: typeof import('axios')['default']
   const computed: typeof import('vue')['computed']
   const createApp: typeof import('vue')['createApp']
   const createPinia: typeof import('pinia')['createPinia']
@@ -70,8 +67,6 @@ declare global {
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
   const useLink: typeof import('vue-router')['useLink']
-  const useMouse: typeof import('@vueuse/core')['useMouse']
-  const useMyFetch: typeof import('@vueuse/core')['useFetch']
   const useRoute: typeof import('vue-router')['useRoute']
   const useRouter: typeof import('vue-router')['useRouter']
   const useSlots: typeof import('vue')['useSlots']

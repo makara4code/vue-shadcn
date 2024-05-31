@@ -2,8 +2,22 @@ import type { RouteRecordRaw } from "vue-router";
 
 export const routes: Array<RouteRecordRaw> = [
   {
+    path: "",
+    redirect: "/todo",
+  },
+  {
     path: "/",
-    component: () => import("@/pages/index.vue"),
+    component: () => import("@/layouts/main-layout/MainLayout.vue"),
+    children: [
+      {
+        path: "/todo",
+        component: () => import("@/views/www/todo/index.vue"),
+      },
+      {
+        path: "/",
+        component: () => import("@/views/index.vue"),
+      },
+    ],
   },
   {
     path: "/",
@@ -15,9 +29,9 @@ export const routes: Array<RouteRecordRaw> = [
       {
         path: "/dashboard",
         name: "dashboard",
-        component: () => import("@/pages/app/Dashboard.vue"),
-      }
-    ]
+        component: () => import("@/views/app/Dashboard.vue"),
+      },
+    ],
   },
   {
     path: "/",
@@ -26,7 +40,7 @@ export const routes: Array<RouteRecordRaw> = [
       {
         path: "/sign-in",
         name: "sign-in",
-        component: () => import("@/pages/app/authentication/SignIn.vue"),
+        component: () => import("@/views/app/authentication/SignIn.vue"),
         meta: {
           pageTitle: "Sign In",
         },
@@ -36,7 +50,7 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: "/404",
     name: "404",
-    component: () => import("@/pages/404NotFound.vue"),
+    component: () => import("@/views/404NotFound.vue"),
     meta: {
       pageTitle: "Error 404",
     },

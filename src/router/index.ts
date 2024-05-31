@@ -4,23 +4,22 @@ import { routes } from "./routes";
 import { useAuthStore } from "@/stores/auth";
 
 const router = createRouter({
-    history: createWebHistory("/"),
-    routes,
-})
+  history: createWebHistory("/"),
+  routes,
+});
 
 router.beforeEach((to, from, next) => {
-    const authStore = useAuthStore();
+  const authStore = useAuthStore();
 
-
-    if (to.meta.middleware == "auth") {
-        if (authStore.isAuthenticated) {
-            next();
-        } else {
-            next({ name: "sign-in" });
-        }
+  if (to.meta.middleware == "auth") {
+    if (authStore.isAuthenticated) {
+      next();
     } else {
-        next();
+      next({ name: "sign-in" });
     }
-})
+  } else {
+    next();
+  }
+});
 
 export default router;
